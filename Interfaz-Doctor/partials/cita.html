@@ -1,0 +1,61 @@
+<section id="citasSection" class="dashboard-section col-md-5 m-3 justify-content-center">
+  <h2 class="text-center text-uppercase">Crear Cita</h2>
+  <div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#addCitaModal">
+      Agendar Nueva Cita
+    </button>
+  </div>
+</section>
+
+<div class="modal fade" id="addCitaModal" tabindex="-1" aria-labelledby="addCitaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 600px">
+    <div class="modal-content">
+      <div class="modal-header bg-light">
+        <h5 class="modal-title fs-5 fw-semibold" id="addCitaModalLabel">Crear Nueva Cita</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+        <form id="formCrearCita">
+          <div class="mb-3">
+            <label for="citaPaciente" class="form-label">Paciente</label>
+            <select class="form-select" id="citaPaciente" name="id_usuario" required>
+              <option selected disabled value="">Seleccione un paciente 🏥</option>
+              </select>
+          </div>
+          <div class="mb-3">
+            <label for="citaFecha" class="form-label">Fecha y Hora</label>
+            <input type="datetime-local" class="form-control" id="citaFecha" name="fecha_hora" required />
+          </div>
+          <div class="mb-3">
+            <label for="citaMotivo" class="form-label">Motivo</label>
+            <input type="text" class="form-control" id="citaMotivo" name="motivo" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="citaPara" class="form-label">Seleccione para quien sera la cita(si es para el propietario de la cuenta dejar vacio)</label>
+            <select class="form-select" id="CitaPara" name="Para">
+              <option selected disabled value>Seleccione una opción</option>
+              <option value="hijo(a)" >Hijo(a)</option>
+              <option value="familiar">Familiar(Papa, Mama, Tio, etc)</option>
+              <option value="esposo(a)">Esposo(a)</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="citaEstado" class="form-label">Estado</label>
+            <select class="form-select" id="citaEstado" name="estado" required>
+              <option value="programada" selected>Programada</option>
+              <option value="cancelada">Cancelada</option>
+              <option value="completada">Completada</option>
+            </select>
+          </div>
+          <input type="hidden" id="citaIdDoctor" name="id_doctor" value="">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary px-4" id="btnGuardarCita">Guardar Cita</button>
+      </div>
+    </div>
+  </div>
+</div>

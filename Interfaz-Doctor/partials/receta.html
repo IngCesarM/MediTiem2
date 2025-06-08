@@ -1,0 +1,99 @@
+<form class="row g-3" id="formReceta">
+  <div class="text-center mb-4">
+    <h3 class="text-uppercase pt-3">Recetar Medicamentos</h3>
+  </div>
+  <div class="col-md-8 mx-auto mb-3">
+    <label for="pacienteReceta" class="form-label">Seleccione un paciente:</label>
+    <select class="form-select" id="pacienteReceta" name="id_usuario_receta" required>
+      <option selected disabled value="">Cargando pacientes...</option>
+    </select>
+  </div>
+
+  <div class="col-12">
+    <h5 class="text-center">Agregar Medicamentos a la Receta Actual</h5>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead class="table-light">
+          <tr>
+            <th scope="col" style="width: 40%;">Medicamento</th>
+            <th scope="col" style="width: 25%;">Dosis</th>
+            <th scope="col" style="width: 25%;">Frecuencia</th>    
+            <th scope="col" style="width: 25%;">Duracion</th>          
+            <th scope="col" style="width: 10%;">Acción</th>
+          </tr>
+        </thead>
+        <tbody id="medicamentosParaAgregarBody">
+          <tr>
+            <td><input type="text" class="form-control form-control-sm" name="medicamento_nombre[]"
+                placeholder="Ej: Paracetamol 500mg" /></td>
+            <td><input type="text" class="form-control form-control-sm" name="medicamento_dosis[]"
+                placeholder="Ej: 1 tableta" /></td>
+            <td><input type="text" class="form-control form-control-sm" name="medicamento_frecuencia[]"
+                placeholder="Ej: cada 8 horas" /></td>
+            <td><input type="text" class="form-control form-control-sm" name="medicamento_duracion[]"
+                placeholder="Ej: 5 días" /></td>
+            <td><button type="button" class="btn btn-sm btn-info" onclick="agregarFilaMedicamento(this)">+</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</form>
+
+<section id="prescribedMedications" class="mt-4" style="display:none;">
+  <h4 class="text-center text-uppercase">Historial de Medicamentos del Paciente</h4>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover table-sm">
+      <thead class="table-secondary">
+        <tr>
+          <th>Medicamento</th>
+          <th>Dosis</th>
+          <th>Frecuencia</th>
+          <th>Duración</th>
+          <th>Fecha Registro</th>
+          <th>Acciones</th>
+       
+         
+        </tr>
+      </thead>
+      <tbody id="tablaMedicamentosRecetadosBody">
+       
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Modal Editar Medicamento -->
+<div class="modal fade" id="modalEditarMedicamento" tabindex="-1" aria-labelledby="modalEditarMedicamentoLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="modal-content" id="formEditarMedicamento">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalEditarMedicamentoLabel">Editar Medicamento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="editIdMedicamento" name="id_medicamento">
+        <div class="mb-2">
+          <label>Nombre</label>
+          <input type="text" class="form-control" id="editNombreMedicamento" name="nombre" required>
+        </div>
+        <div class="mb-2">
+          <label>Dosis</label>
+          <input type="text" class="form-control" id="editDosisMedicamento" name="dosis" required>
+        </div>
+        <div class="mb-2">
+          <label>Frecuencia</label>
+          <input type="text" class="form-control" id="editFrecuenciaMedicamento" name="frecuencia" required>
+        </div>
+        <div class="mb-2">
+          <label>Duración</label>
+          <input type="text" class="form-control" id="editDuracionMedicamento" name="duracion" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Guardar Cambios</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>

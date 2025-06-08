@@ -1,0 +1,83 @@
+<div class="modal fade" id="editarPacienteModal" tabindex="-1" aria-labelledby="editarPacienteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="editarPacienteModalLabel">Actualización de paciente</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3" id="formEditarPaciente">
+          <input type="hidden" id="editIdUsuario" name="idUsuario">
+          <input type="hidden" id="editIdDoctorAsignado" name="idDoctorAsignado">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="editNombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="editNombre" name="nombre" placeholder="Ingresa tu nombre" required />
+            </div>
+            <div class="mb-3">
+              <label for="editApellidoPaterno" class="form-label">Apellido Paterno</label>
+              <input type="text" class="form-control" id="editApellidoPaterno" name="apellidoPaterno" placeholder="Ingresa tu apellido paterno" required />
+            </div>
+            <div class="mb-3">
+              <label for="editApellidoMaterno" class="form-label">Apellido Materno</label>
+              <input type="text" class="form-control" id="editApellidoMaterno" name="apellidoMaterno" placeholder="Ingresa tu apellido materno" required />
+            </div>
+            <div class="mb-3">
+              <label for="editSexo" class="form-label">Sexo</label>
+              <select class="form-select" id="editSexo" name="sexo" required>
+                <option value="" selected disabled>Seleccionar sexo</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="editEdad" class="form-label">Edad</label>
+              <input type="number" class="form-control" id="editEdad" name="edad" placeholder="Ingresa tu edad" required />
+            </div>
+            <div class="mb-3">
+              <label for="editFechaNacimiento" class="form-label">Fecha de nacimiento</label>
+              <input type="date" class="form-control" id="editFechaNacimiento" name="fechaNacimiento" required />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="editPeso" class="form-label">Peso (KG)</label>
+              <input type="number" step="0.01" class="form-control" id="editPeso" name="peso" placeholder="Ingresa tu peso (KG)" required />
+            </div>
+            <div class="mb-3">
+              <label for="editEstatura" class="form-label">Estatura (m)</label>
+              <input type="number" step="0.01" class="form-control" id="editEstatura" name="estatura" placeholder="Ingresa tu estatura en metros" required />
+            </div>
+            <div class="mb-3">
+              <label for="editCorreoElectronico" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="editCorreoElectronico" name="correoElectronico" placeholder="Ingresa tu correo electrónico" required />
+            </div>
+            <div class="mb-3">
+              <label for="editTelefono" class="form-label">Número de Teléfono</label>
+              <input type="tel" class="form-control" id="editTelefono" name="telefono" placeholder="Ingresa tu número de teléfono" required />
+            </div>
+            <div class="mb-3">
+              <label for="editRol" class="form-label">Rol</label>
+              <select class="form-select" id="editRol" name="rol" required>
+                <option value="paciente" selected>Paciente</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="editContrasena" class="form-label">Contraseña</label>
+              <div class="input-group">
+                <input type="password" class="form-control" id="editContrasena" name="contrasena" placeholder="Ingresa la contraseña" required />
+                <button class="btn btn-outline-secondary" type="button" id="toggleEditPassword">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="btnActualizarPaciente">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>

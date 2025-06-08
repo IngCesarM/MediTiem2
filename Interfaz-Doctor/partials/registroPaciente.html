@@ -1,0 +1,125 @@
+<section class="dashboard-section col-md-5 m-3">
+  <h2 class="text-uppercase text-center">Registrar Nuevo Paciente</h2>
+  <div class="d-flex justify-content-center">
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addPacienteModal">
+      Registrar Nuevo Paciente
+    </button>
+  </div>
+</section>
+
+<!-- Registrar Nuevo Paciente -->
+<div class="modal fade" id="addPacienteModal" tabindex="-1" aria-labelledby="addPacienteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="addPacienteModalLabel">
+          Registrar Nuevo Paciente
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3" id="formRegistrarPaciente">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="regNombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="regNombre" name="nombre" placeholder="Ingresa tu nombre"
+                required />
+            </div>
+            <div class="mb-3">
+              <label for="regApellidoPaterno" class="form-label">Apellido Paterno</label>
+              <input type="text" class="form-control" id="regApellidoPaterno" name="apellidoPaterno"
+                placeholder="Ingresa tu apellido paterno" required />
+            </div>
+            <div class="mb-3">
+              <label for="regApellidoMaterno" class="form-label">Apellido Materno</label>
+              <input type="text" class="form-control" id="regApellidoMaterno" name="apellidoMaterno"
+                placeholder="Ingresa tu apellido materno" required />
+            </div>
+            <div class="mb-3">
+              <label for="regSexo" class="form-label">Sexo</label>
+              <select class="form-select" id="regSexo" name="sexo" required>
+                <option value="" selected disabled>Seleccionar sexo</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="regEdad" class="form-label">Edad</label>
+              <input type="number" class="form-control" id="regEdad" name="edad" placeholder="Ingresa tu edad"
+                required />
+            </div>
+            <div class="mb-3">
+              <label for="regFechaNacimiento" class="form-label">Fecha de nacimiento</label>
+              <input type="date" class="form-control" id="regFechaNacimiento" name="fechaNacimiento"
+                placeholder="Ingresa tu fecha de nacimiento" required />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="regPeso" class="form-label">Peso</label>
+              <input type="number" step="0.01" class="form-control" id="regPeso" name="peso"
+                placeholder="Ingresa tu peso (KG)" required />
+            </div>
+            <div class="mb-3">
+              <label for="regEstatura" class="form-label">Estatura</label>
+              <input type="number" step="0.01" class="form-control" id="regEstatura" name="estatura"
+                placeholder="Ingresa tu estatura (metros, e.g., 1.75)" required />
+            </div>
+            <div class="mb-3">
+              <label for="regCorreoElectronico" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="regCorreoElectronico" name="correoElectronico"
+                placeholder="Ingresa tu correo electrónico" required />
+            </div>
+            <div class="mb-3">
+              <label for="regTelefono" class="form-label">Número de Teléfono</label>
+              <input type="tel" class="form-control" id="regTelefono" name="telefono"
+                placeholder="Ingresa tu número de teléfono" required />
+            </div>
+            <div class="mb-3">
+              <label for="regRol" class="form-label">Rol</label>
+              <select class="form-select" id="regRol" name="rol" required>
+                <option value="paciente" selected>Paciente</option>
+
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="regContraseña" class="form-label">Contraseña</label>
+              <div class="input-group">
+                <input type="password" class="form-control" id="regContraseña" name="contraseña"
+                  placeholder="Ingresa tu contraseña" required />
+                <button class="btn btn-outline-secondary" type="button" id="toggleRegPassword">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary" id="btnGuardarPaciente">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  // Password toggle for registration form
+  const toggleRegPassword = document.getElementById("toggleRegPassword");
+  if (toggleRegPassword) {
+    toggleRegPassword.addEventListener("click", function () {
+      const passwordInput = document.getElementById("regContraseña");
+      const icon = this.querySelector("i");
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        icon.classList.remove("bi-eye");
+        icon.classList.add("bi-eye-slash");
+      } else {
+        passwordInput.type = "password";
+        icon.classList.remove("bi-eye-slash");
+        icon.classList.add("bi-eye");
+      }
+    });
+  }
+</script>

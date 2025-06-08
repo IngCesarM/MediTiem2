@@ -1,0 +1,42 @@
+<div class="col-md-4 bg-light p-4 m-2">
+  <div class="text-center">
+    <img src="img/doctores/<?php echo isset($_SESSION['foto_perfil']) ? $_SESSION['foto_perfil'] : 'default.png'; ?>" 
+         alt="Foto del Doctor" class="profile-img mb-3" id="doctorProfileImg" />
+    <form id="formFotoPerfil" enctype="multipart/form-data" method="POST" action="api/subir_foto.php">
+      <input type="file" name="foto_perfil" accept="image/*" required>
+      <button type="submit" class="btn btn-sm btn-primary mt-2">Subir Foto</button>
+    </form>
+    <h3 class="mt-2 text-uppercase" id="doctorNameProfile"></h3>
+    <p class="text-muted text-uppercase" id="doctorSpecialtyProfile"></p>
+    <p class="text-secondary" id="doctorIdProfile"></p>
+    <hr>
+    <button class="btn btn-danger mt-3" onclick="window.location.href='logout.php'">
+    Cerrar sesión
+    </button>
+   </hr>
+  </div>
+  <div class="mt-4">
+    <h4 class="text-center text-uppercase pt-3 border-top">Citas Pendientes</h4>
+    <div class="table-responsive">
+        <table class="table table-hover table-sm">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Total de Citas</th>
+                    <th scope="col">Paciente</th>
+                    <th scope="col">Motivo</th>
+                    <th scope="col">Cita para</th>
+                    <th scope="col">Horario</th>             
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaCitasPendientesBody">
+                <tr><td colspan="6" class="text-center">Cargando citas...</td></tr>
+            </tbody>
+        </table>
+        <!-- Mueve la paginación fuera de la tabla -->
+        <div id="paginacionCitas" class="mt-3 d-flex justify-content-center"></div>
+    </div>
+  </div>
+  <!-- Puedes ponerlo donde gustes, por ejemplo debajo de la foto -->
+  
+</div>

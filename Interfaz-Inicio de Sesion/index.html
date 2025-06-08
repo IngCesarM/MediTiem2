@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register</title>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container registro-container">
+            <form id="formRegistro" action="../Modelo/RegistroDoctores.php" method="POST">
+                <h1>Crea tu cuenta</h1>
+                <input type="text" name="nombre" placeholder="Nombre" required />
+                <input type="text" name="apellido_paterno" placeholder="Apellido Paterno" required />
+                <input type="text" name="apellido_materno" placeholder="Apellido Materno" required />
+                <input type="text" name="cedula" placeholder="Cédula" required />
+                <input type="email" name="correo" placeholder="Correo" required />
+                <input type="text" name="telefono" placeholder="Teléfono" required />
+                <input type="password" name="contrasena" placeholder="Contraseña" required />
+                <input type="text" name="especialidad" placeholder="Especialidad" required />
+                <button type="submit">Registrar</button>
+                <span>o usa tu cuenta</span>
+                <div id="mensajeRegistro" class="form-message"></div>
+            </form>
+
+            </form>
+        </div>
+
+        <div class="form-container login-container">
+            <form id="formLogin" action="../Modelo/login.php" method="POST">
+                <h1>Iniciar Sesión</h1>
+                <input type="email" name="correo" placeholder="Correo" required />
+                <input type="password" name="contrasena" placeholder="Contraseña" required />
+                <div class="content">
+                    <div class="checkbox">
+                    </div>
+                    <div class="pass-link">
+                    </div>
+                </div>
+                <button type="submit">Iniciar Sesión</button>
+                <div id="mensajeLogin" class="form-message"></div>
+
+                <div class="social-container">
+                    <a href="#" class="social"><i class="lni lni-facebook-fill"></i></a>
+                    <a href="#" class="social"><i class="lni lni-google"></i></a>
+                    <a href="#" class="social"><i class="lni lni-instagram"></i></a>
+                </div>
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <video autoplay muted loop class="background-video">
+                    <source src="Meditiem.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="overlay-panel overlay-left">
+                    <h1>Bienveniado a Meditiem!</h1>
+                    <p>Si no tienes una cuenta, registrate aqui</p>
+                    <p>Esta opcion solo es para profesionales de la salud, si eres un paciente
+                        tu doctor te proporcionara un acceso a la plataforma.</p>
+                    </p>
+                    <button class="ghost" id="register">Registrar
+                        <i class="lni lni-arrow-left-login"></i>
+                    </button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1 class="title">
+                        Comienza tu<br>viaje ahora</h1>
+                    <p>Si aún no tienes una cuenta, únete a nosotros y comienza tu viaje..</p>
+                    <button class="ghost" id="login">Inicia Sesión
+                        <i class="lni lni-arrow-right-register"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+    <script src="script.js"></script>
+    <script src="ajaxHandler.js"></script>
+
+</body>
+
+</html>
